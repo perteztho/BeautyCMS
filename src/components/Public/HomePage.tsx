@@ -106,14 +106,22 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="relative bg-gradient-to-r from-red-600 to-red-800 text-white">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <section id="home" className="relative bg-gradient-to-r from-red-600 to-red-800 text-white min-h-screen flex items-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1527482797697-8795b05a13fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)'
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <Shield className="w-12 h-12 text-white" />
-              </div>
+              <img 
+                src="https://res.cloudinary.com/dedcmctqk/image/upload/v1750079276/logome_h9snnx.webp"
+                alt="Pio Duran DRRM Logo"
+                className="w-24 h-24 object-contain"
+              />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Pio Duran Disaster Risk Reduction

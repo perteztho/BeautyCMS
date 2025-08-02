@@ -100,9 +100,11 @@ const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
+              <img 
+                src="https://res.cloudinary.com/dedcmctqk/image/upload/v1750079276/logome_h9snnx.webp"
+                alt="Pio Duran DRRM Logo"
+                className="w-10 h-10 object-contain"
+              />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">Pio Duran DRRM</h1>
                 <p className="text-xs text-gray-600">Disaster Risk Reduction</p>
