@@ -141,7 +141,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onFo
           </div>
         </form>
       </div>
-    </div>
   );
 };
 
