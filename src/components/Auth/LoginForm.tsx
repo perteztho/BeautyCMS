@@ -26,8 +26,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onSwitchToRegister, onFo
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl">
-        <div className="text-center">
+      <div className="text-center max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl">
           <div className="mx-auto h-16 w-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
             <Shield className="h-8 w-8 text-white" />
           </div>
