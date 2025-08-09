@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import LoginForm from './LoginForm';
+import EnhancedLoginForm from './EnhancedLoginForm';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   }
 
   if (!isAuthenticated) {
-    return <LoginForm />;
+    return <EnhancedLoginForm />;
   }
 
   // Check role permissions
