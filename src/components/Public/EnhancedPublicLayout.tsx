@@ -305,7 +305,7 @@ const EnhancedPublicLayout: React.FC<EnhancedPublicLayoutProps> = ({
                   className="w-10 h-10 object-contain"
                 />
                 <div>
-                  <h3 className="text-xl font-bold">Pio Duran DRRM</h3>
+                  <h3 className="text-xl font-bold">MDRRMO</h3>
                   <p className="text-gray-400">Disaster Risk Reduction & Management</p>
                 </div>
               </div>
