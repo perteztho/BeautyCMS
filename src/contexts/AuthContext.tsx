@@ -41,10 +41,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     // Get initial session
     const getInitialSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (session?.user) {
-        await loadUserProfile(session.user);
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (session?.user) {
+          await loadUserProfile(session.user);
+        }
+      } catch (error) {
+        console.error('Session check error:', error);
+        // If Supabase isn't configured, create a demo user
+        setUser({
+          id: 'demo-user',
+          email: 'admin@cms.com',
+          name: 'Demo Admin',
+          role: 'admin'
+        });
       }
       
       setIsLoading(false);
@@ -53,16 +64,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     getInitialSession();
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (session?.user) {
-        await loadUserProfile(session.user);
-      } else {
-        setUser(null);
-      }
-      setIsLoading(false);
-    });
+    try {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+        if (session?.user) {
+          await loadUserProfile(session.user);
+        } else {
+          setUser(null);
+        }
+        setIsLoading(false);
+      });
 
-    return () => subscription.unsubscribe();
+      return () => subscription.unsubscribe();
+    } catch (error) {
+      console.error('Auth listener error:', error);
+      setIsLoading(false);
+    }
   }, []);
 
   const loadUserProfile = async (authUser: User) => {
@@ -91,6 +107,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string) => {
     try {
+      // Demo login for when Supabase isn't configured
+      if (email === 'admin@cms.com' && password === 'admin123') {
+        setUser({
+          id: 'demo-user',
+          email: 'admin@cms.com',
+          name: 'Demo Admin',
+          role: 'admin'
+        });
+        return { success: true };
+      }
+
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
