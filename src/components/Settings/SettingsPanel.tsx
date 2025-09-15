@@ -486,7 +486,7 @@ const SettingsPanel: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="admin_cms"
+                    defaultValue="sql12798747"
                     className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
